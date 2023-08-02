@@ -2,11 +2,8 @@ import json
 
 
 def lambda_handler(event, context):
-    code = event.get('code')
 
-    if not code:
-        if 'queryStringParameters' in event:
-            code = event['queryStringParameters']['code']
+    code = event['queryStringParameters']['code']
 
     response = {
         'statusCode': 200,
