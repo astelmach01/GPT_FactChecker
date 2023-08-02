@@ -1,4 +1,4 @@
-name: AssistantGPT
+name: GPT_FactChecker
 
 on: [pull_request]
 

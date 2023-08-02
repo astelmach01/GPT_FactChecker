@@ -2,9 +2,7 @@ import os
 
 import uvicorn
 
-from app.main import create_app
-
-app = create_app()
+from src.main import app
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8080))
