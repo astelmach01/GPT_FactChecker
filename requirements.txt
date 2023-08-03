@@ -1,0 +1,4 @@
+setuptools~=65.5.0
+openai
+python-dotenv
+black
