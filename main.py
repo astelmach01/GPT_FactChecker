@@ -33,7 +33,7 @@ configure_logging()
 def main():
     prompt = input("Enter your prompt:")
 
-    chatGPT = ChatGPT(ROOT_DIR / "util.py")
+    chatGPT = ChatGPT(ROOT_DIR / "functions.py")
     print(chatGPT.get_response(prompt))
 
 

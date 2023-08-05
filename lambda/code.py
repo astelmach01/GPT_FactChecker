@@ -1,6 +1,6 @@
 import json
 
-from util import execute_and_capture_output
+from functions import execute_and_capture_output
 
 
 def lambda_handler(event, context):

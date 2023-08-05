@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import ast
 import openai
 import json
-from util import available_functions
+from functions import available_functions
 
 load_dotenv()
 
@@ -18,9 +18,7 @@ MODEL = "gpt-3.5-turbo"
 def _handle_function_call(messages, response_message):
     function_name = response_message["function_call"]["name"]
     function_to_call = available_functions[function_name]
-    function_args = json.loads(
-        response_message["function_call"]["arguments"], strict=False
-    )
+    function_args = json.loads(response_message["function_call"]["arguments"])
     function_response = function_to_call(**function_args)
 
     messages.append(response_message)  # extend conversation with assistant's reply
@@ -70,7 +68,7 @@ class ChatGPT:
                 "def reverse_string(string): return string[::-1] \n\n "
                 "print(reverse_string('Hello, World!') == '!dlroW ,olleH')"
                 "\nMake sure that the program results in some output if it were run with"
-                "python main.py",
+                "python main.py, and as a reminder, include test cases in your code."
             },
             {"role": "user", "content": prompt},
         ]
